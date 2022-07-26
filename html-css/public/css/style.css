@@ -43,7 +43,7 @@ img#icone {
 header#cabecalho {
     border-bottom: 2px #ffffff solid;
     height: 100px;
-    background: url("../_imagens/carslover-removebg-preview.png") no-repeat 0px 20px;
+    background: url("/images/carslover-removebg-preview.png") no-repeat 0px 20px;
 }
 
 p#text {
@@ -103,6 +103,7 @@ nav#menu ul {
     position: relative;
     top: -35px;
     left: 600px;
+    
 }
 
 nav#menu li:hover {
@@ -114,11 +115,14 @@ nav#menu li {
     display: inline-block;
     background-color: rgba(39, 39, 39, 0.808);
     padding: 5px;
+    border-radius: 75%;
+    
 }
 
 nav#menu a {
     color: rgba(85, 87, 255, 0.808);
     text-decoration: none;
+    font-size: small;
 }
 
 p#text a {
