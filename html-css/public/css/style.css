@@ -43,7 +43,7 @@ img#icone {
 header#cabecalho {
     border-bottom: 2px #ffffff solid;
     height: 100px;
-    background: url("/images/carslover-removebg-preview.png") no-repeat 0px 20px;
+    background: url("/images/carslover-removebg-preview.png") no-repeat 0px 20px ;
 }
 
 p#text {
@@ -64,6 +64,7 @@ figure.fotolegenda {
     height: auto;
     padding-left: auto;
     padding-right: auto;
+    margin: auto;
 }
 
 figure.fotolegenda img {
@@ -103,6 +104,7 @@ nav#menu ul {
     position: relative;
     top: -35px;
     left: 600px;
+    padding: 10px;
     
 }
 
@@ -117,7 +119,7 @@ nav#menu li {
     padding: 5px;
     border-radius: 75%;
     
-}
+} 
 
 nav#menu a {
     color: rgba(85, 87, 255, 0.808);
