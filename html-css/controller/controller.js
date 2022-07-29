@@ -16,6 +16,10 @@ const getCom = async (req,res) => {
     return res.render("../views/community.ejs")
 }
 
+const getRegister = async (req, res) => {
+    return res.render("../views/register.ejs")
+}
+
 
 
 
@@ -23,5 +27,6 @@ module.exports = {
     getPage,
     getPic,
     getHom,
-    getCom
+    getCom,
+    getRegister
 }

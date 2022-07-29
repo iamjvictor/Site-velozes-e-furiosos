@@ -127,6 +127,27 @@ nav#menu a {
     font-size: small;
 }
 
+a#log{
+    text-transform: uppercase;
+    list-style: none;
+    display: inline-block;
+    margin: 2px;
+    position: relative;
+    top: -25px;
+    left: 750px;
+    padding: 10px;
+    font-size: 10px;
+    font-weight: 800;
+    background-color: rgba(39, 39, 39, 0.808);
+    cursor: pointer;
+    color: rgba(0, 2, 97, 0.863);
+}
+
+a#log:hover{
+    background-color: rgb(134, 134, 134);
+    text-decoration: underline;
+}
+
 p#text a {
     color: rgba(39, 39, 39, 0.808);
     text-decoration: underline;
