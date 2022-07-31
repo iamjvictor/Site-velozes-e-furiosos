@@ -216,3 +216,16 @@ footer#rodape a {
     color: rgba(39, 39, 39, 0.808);
     text-decoration: underline;
 }
+
+/*register*/
+
+.btn{
+    padding: auto;
+    margin: 10px;
+}
+
+p#reg{
+    text-align: center;
+    color: black;
+    font-size: smaller;
+}

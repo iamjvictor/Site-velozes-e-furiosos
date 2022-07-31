@@ -19,7 +19,7 @@ const users = sequelize.define("users", {
     },
 
     password:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         require:true
     }
 })

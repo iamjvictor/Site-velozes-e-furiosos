@@ -6,12 +6,13 @@
     <title>CarLovers</title>
     <link rel="shortcut icon" href="/images/Caricon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
-
-
-
+    
+    
+    
 </head>
 
 <body>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div id="interface">
 
 
@@ -46,22 +47,58 @@
             </nav>
         </header>
 
+         
+                  
+           <% if(message!=""){ %> 
+                <% if(type =="email exists"){ %> 
+                    <script>  
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'This email already exists',
+                                
+                            })
+                    </script>
+                <% } %>                
+            <% } %>
+        
+        
+            
+            
+        
 
-        <h1>Register</h1>
+        <section id="principal">
 
-        <form action="/register" style="text-align: center;" method="post">
-            <h2>Name</h2>
-            <input type="text" name="name"/>
-            <h2>Email</h2>
-            <input type="text" name="Email" />
-            <h2>Password</h2>
-            <input type="text" name="password"/>
-            <p style="text-align: center;" id="text"> *The password must be numbers </p>
-            <h2>Your Favorite car</h2>
-            <input type="text" name="car"/>
-            <br>
-            <input type="submit" name="acao" value="REGISTER"/>
-        </form>
+            <h1>Register</h1>
+
+            <form action="/register" style="text-align: center;" method="post">
+                <h2>Name</h2>
+                <input type="text" name="name"/>
+                <h2>Email</h2>
+                <input type="text" name="email" />
+                <h2>Password</h2>
+                <input type="text" name="password"/>
+                <p id="reg">*The password must be numbers </p>
+                <h2>Your Favorite car</h2>
+                <input type="text" name="car"/>
+                <br>
+                <input class="btn" type="submit" name="acao" value="REGISTER"/>
+                <p id="reg">You will be redirected to home page. </p>
+            </form>
+        </section>
+        <aside id="lateral">
+            <h1>Login</h1>
+            <form action="/login" style="text-align:center;" method="post"> 
+                <h2>Email</h2>
+                <input type="text" name="email" />
+                <h2>Password</h2>
+                <input type="text" name="password"/><br>
+                <input class="btn" type="submit" name="acao" value="LOGIN"/>
+            </form>
+            
+
+            
+        </aside>
 
         <footer id="rodape">
             <p>João Victor 2021. First Project &reg; <br/>
