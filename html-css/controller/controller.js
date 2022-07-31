@@ -21,6 +21,7 @@ const getCom = async (req,res) => {
 }
 
 const getRegister = async (req, res) => {
+<<<<<<< HEAD
     message = ""
     return res.render("../views/register.ejs", {message, type})
 }
@@ -56,6 +57,11 @@ const sendLogin = async(req,res) =>{
 }
 
     
+=======
+    return res.render("../views/register.ejs")
+}
+
+>>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
 
  
 
@@ -65,7 +71,11 @@ module.exports = {
     getPic,
     getHom,
     getCom,
+<<<<<<< HEAD
     getRegister,
     sendRegister,
     sendLogin,
+=======
+    getRegister
+>>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
 }

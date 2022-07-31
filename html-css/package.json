@@ -10,7 +10,10 @@
   "author": "João Victor Asevedo",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.0.1",
+=======
+>>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
     "body-parser": "^1.20.0",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.8",
@@ -18,7 +21,11 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
+<<<<<<< HEAD
     "sequelize": "^6.21.3",
     "sweetalert2": "^11.4.24"
+=======
+    "sequelize": "^6.21.3"
+>>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
   }
 }

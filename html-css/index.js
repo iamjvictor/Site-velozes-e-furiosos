@@ -9,7 +9,10 @@ const flash = require('connect-flash')
 const app = express();
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
 //Section
 app.use(session({
   secret:"meusitevf",
