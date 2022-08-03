@@ -19,11 +19,8 @@ const users = sequelize.define("users", {
     },
 
     password:{
-<<<<<<< HEAD
+
         type: Sequelize.STRING,
-=======
-        type: Sequelize.INTEGER,
->>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
         require:true
     }
 })

@@ -4,21 +4,22 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const connect = require("./database/db")
 const model = require("./models/users")
-const session = require('express-session')
-const flash = require('connect-flash')
+const session = require('express-session');
 const app = express();
+const passport = require("passport")
+require ("./config/auth")(passport)
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
 //Section
 app.use(session({
   secret:"meusitevf",
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  cookie: {maxAge: 2 * 60 * 1000}
 }));
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 //Middleware
 

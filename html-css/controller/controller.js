@@ -1,5 +1,8 @@
 const users = require("../models/users");
 const bcrypt = require('bcrypt');
+const passport = require("passport");
+
+
 
 let message = "";
 let type= "";
@@ -17,51 +20,62 @@ const getHom = async (req,res) => {
 }
 
 const getCom = async (req,res) => {
-    return res.render("../views/community.ejs")
+    // = await users.findOne({where: {name: users.name}})
+    return res.render("../views/community.ejs") 
 }
 
 const getRegister = async (req, res) => {
-<<<<<<< HEAD
     message = ""
     return res.render("../views/register.ejs", {message, type})
 }
+
 // Sign up/ Sign in
 
 const sendRegister = async (req,res) =>{
-try {
-    const hashPass = await bcrypt.hash(req.body.password,10);   
-    const regUser = {name: req.body.name, password: (hashPass), email: req.body.email, car: req.body.car};    
-    const oldUser = await users.findOne({ where: { email: req.body.email } });
-    console.log(oldUser)
-        if(oldUser == null){
-            await users.create(regUser);                     
-            message= "Account created";
-            type= "success";
-            console.log(message);
-            return res.redirect("/");
-        }else{
-            message= "this email already exists";
-            type= "email exists"
-            console.log(message);
-            return res.render("register", {message,type});
+    try {
+        const hashPass = await bcrypt.hash(req.body.password,10);   
+        const regUser = {name: req.body.name, password: (hashPass), email: req.body.email, car: req.body.car};    
+        const oldUser = await users.findOne({ where: { email: req.body.email } });
+        console.log(oldUser)
+            if(oldUser == null){
+                await users.create(regUser);                     
+                message= "Account created";
+                type= "success";
+                console.log(message);
+                return res.redirect("/");
+            }else{
+                message= "this email already exists";
+                type= "email exists"
+                console.log(message);
+                return res.render("register", {message,type});
 
-        }
-} catch (err) {
-    res.status(500).send({ error: err.message });
+            }
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+    };
+    
+const sendLogin = async(req,res, next) =>{
+    passport.authenticate("local", {
+        successRedirect: "/community.ejs",
+        failureRedirect: "/register.ejs",
+        
+    })(req,res, next)
 }
-};
 
-const sendLogin = async(req,res) =>{
-    //continuar esse controller
-    res.redirect("/")
+//authenticate
+
+function auth(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    };
+    res.redirect('/')
 }
+
 
     
-=======
-    return res.render("../views/register.ejs")
-}
 
->>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
+
 
  
 
@@ -71,11 +85,9 @@ module.exports = {
     getPic,
     getHom,
     getCom,
-<<<<<<< HEAD
     getRegister,
     sendRegister,
     sendLogin,
-=======
-    getRegister
->>>>>>> a3617b4bb7a2c4d044b7a76938b20b3de0067aad
+    auth
+
 }
