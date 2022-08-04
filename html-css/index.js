@@ -8,6 +8,7 @@ const session = require('express-session');
 const app = express();
 const passport = require("passport")
 require ("./config/auth")(passport)
+const flash = require('connect-flash');
 
 
 //Section
@@ -20,8 +21,15 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
 
 //Middleware
+app.use((req,res,next)=> {
+  res.locals.user = req.user || null;
+  
+  next()
+})
+
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended: true}))
@@ -44,6 +52,9 @@ app.use(routes);
 
 
 app.set("view engine", "ejs");
+
+
+
 
 
 

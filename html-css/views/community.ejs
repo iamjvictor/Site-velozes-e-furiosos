@@ -18,8 +18,7 @@
         <header id="cabecalho">
             <hgroup>
                 <h3>
-                    Olá, <?=req.user?>
-
+                    Portal de fãs, apaixonados por carros e automotivos.
                 </h3>
             </hgroup>
 
@@ -45,6 +44,13 @@
 
             </nav>
         </header>
+        <h2>Comments</h2>
+        <form action="/create" method="POST">
+            <input type="text" name="comments" id="comments" placeholder="Insert your comment about the movie !!">
+            <button id="addButton" type="submit">Comment</button>
+        </form>
+
+        
 
 
         <footer id="rodape">

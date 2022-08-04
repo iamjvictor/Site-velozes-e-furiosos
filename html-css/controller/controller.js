@@ -1,4 +1,5 @@
 const users = require("../models/users");
+const comments = require("../models/comments")
 const bcrypt = require('bcrypt');
 const passport = require("passport");
 
@@ -6,6 +7,7 @@ const passport = require("passport");
 
 let message = "";
 let type= "";
+
 //Rotas
 const getPage = async (req, res) => {
     return res.render("../views/index", {message, type})
@@ -19,9 +21,10 @@ const getHom = async (req,res) => {
     return res.render("../views/homenagem.ejs")
 }
 
-const getCom = async (req,res) => {
-    // = await users.findOne({where: {name: users.name}})
-    return res.render("../views/community.ejs") 
+const getCom = async (req,res) => { 
+    const commentsList= await  comments.findAll({});   
+    
+    return res.render("../views/community.ejs", {commentsList}) 
 }
 
 const getRegister = async (req, res) => {
@@ -42,7 +45,7 @@ const sendRegister = async (req,res) =>{
                 message= "Account created";
                 type= "success";
                 console.log(message);
-                return res.redirect("/");
+                return res.render("index", {message,type});
             }else{
                 message= "this email already exists";
                 type= "email exists"
@@ -56,11 +59,26 @@ const sendRegister = async (req,res) =>{
     };
     
 const sendLogin = async(req,res, next) =>{
+    
     passport.authenticate("local", {
         successRedirect: "/community.ejs",
         failureRedirect: "/register.ejs",
         
     })(req,res, next)
+}
+
+const sendComment = async(req,res) =>{
+    const thisUser = req.session.passport.user   
+    const userName = await users.findOne({where: {id: thisUser}})
+    const com = {name: userName.name, comment : req.body.comments};
+    try {
+        await comments.create(com);        
+        return res.redirect("/community.ejs")
+    } catch (error) {
+        
+    }
+
+
 }
 
 //authenticate
@@ -69,7 +87,8 @@ function auth(req,res,next){
     if(req.isAuthenticated()){
         return next();
     };
-    res.redirect('/')
+    message="";
+    res.render('register', {message,type})
 }
 
 
@@ -88,6 +107,7 @@ module.exports = {
     getRegister,
     sendRegister,
     sendLogin,
-    auth
+    auth,
+    sendComment
 
 }

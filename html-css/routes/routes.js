@@ -8,6 +8,7 @@ routes.get("/community.ejs", controller.auth,controller.getCom);
 routes.get("/register.ejs", controller.getRegister);
 routes.post("/register", controller.sendRegister);
 routes.post("/login", controller.sendLogin);
+routes.post("/create", controller.sendComment)
 
 
 

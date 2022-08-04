@@ -25,6 +25,8 @@ const users = sequelize.define("users", {
     }
 })
 
-//users.sync({ force: true });
+
+
+//comments.sync({ force: true });
 
 module.exports = users;

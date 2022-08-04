@@ -56,6 +56,18 @@
 
         </header>
 
+        <% if(message!=""){ %> 
+            <% if(type =="success"){ %> 
+                <script>
+                    Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                    )
+                </script>
+            <% } %>                
+        <% } %>
+
         <section id="principal">
             <hgroup>
                 <h1 style="text-align: center;">Velozes e Furiosos </h1>

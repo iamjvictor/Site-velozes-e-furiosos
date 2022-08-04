@@ -229,3 +229,30 @@ p#reg{
     color: black;
     font-size: smaller;
 }
+
+/*Comment*/
+input#comments{
+    padding: 5px;
+    width: 100%;
+    background-color:rgba(129, 129, 129, 0.808) ;
+    margin: auto;
+    padding-bottom: 40px;
+    color: #ffffff;
+    font-size: 15px;
+}
+input#comments::placeholder{
+    color: #ffffff;
+    font-size: 15px;
+}
+
+button#addButton{
+    margin: 5px;
+    width: 10%;
+    padding: 10px;
+    background-color: rgba(129, 129, 129, 0.808);
+}
+
+button#addButton:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
