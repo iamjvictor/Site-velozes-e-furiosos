@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const routes = require("./routes/routes")
 const path = require("path");
@@ -16,7 +17,7 @@ app.use(session({
   secret:"meusitevf",
   resave: true,
   saveUninitialized: false,
-  cookie: {maxAge: 2 * 60 * 1000}
+  cookie: {maxAge: 60 * 60 * 1000}
 }));
 
 app.use(passport.initialize())
@@ -25,8 +26,8 @@ app.use(flash())
 
 //Middleware
 app.use((req,res,next)=> {
-  res.locals.user = req.user || null;
-  
+  res.locals.error = req.flash("error")
+  res.locals.user = req.user || null;  
   next()
 })
 

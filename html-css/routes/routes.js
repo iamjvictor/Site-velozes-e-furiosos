@@ -9,6 +9,7 @@ routes.get("/register.ejs", controller.getRegister);
 routes.post("/register", controller.sendRegister);
 routes.post("/login", controller.sendLogin);
 routes.post("/create", controller.sendComment)
+routes.get("/logout", controller.logout)
 
 
 

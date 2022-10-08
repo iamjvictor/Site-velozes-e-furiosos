@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize')
 
 const sequelize = new Sequelize({
-  host: 'localhost',
-  username: 'root',
-  password: '250202joaov',
-  database: 'usersvf',
+  host: process.env.DB_HOST,
+  username: process.env.DB_ROOT,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DB,
   dialect: 'mysql',
   multipleStatements: true
 });

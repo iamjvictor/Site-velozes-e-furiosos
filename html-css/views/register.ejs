@@ -6,7 +6,7 @@
     <title>CarLovers</title>
     <link rel="shortcut icon" href="/images/Caricon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
-
+   
     
     
     
@@ -14,23 +14,14 @@
 
 <body>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-</head>
-
-<body>
+    <script type="text/javascript" src="/public/script.js"></script>
 
     <div id="interface">
 
-
-        <header id="cabecalho">
-            <hgroup>
-                <h3>
-                    Portal de fãs, apaixonados por carros e automotivos.
-
-                </h3>
-            </hgroup>
+        <header id="cabecalho">            
 
             <nav id="menu">
+                <a class="logo" href="/">Car<span>L</span>overs</a>
                 <ul type=disc>
                     <li>
                         <a href="/">Home</a>
@@ -47,14 +38,28 @@
                     <li>
                         <a href="community.ejs"> Community </a>
                     </li>
+                    <%if (user){%>
+                        <li>
+                            <a href="logout">LOGOUT</a>
+                        </li>
+                        <%} else {%>
+                        <li>
+                            <a  href="register.ejs" > Login </a> 
+                        </li>
+                        <li>
+                            <a href="register.ejs"   > Register </a>
+                        </li>
+                        <%}%>
                 </ul>
-
-
             </nav>
-        </header>
 
-
-         
+            <hgroup>
+                <h3>
+                    Portal de fãs, apaixonados por carros e automotivos.
+                </h3>
+            </hgroup>                  
+        
+        </header>         
                   
            <% if(message!=""){ %> 
                 <% if(type =="email exists"){ %> 
@@ -62,11 +67,31 @@
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
-                                text: 'This email already exists',
+                                text: 'Email already in use',
                                 
                             })
                     </script>
-                <% } %>                
+                <% } %>  
+                <%if(type=="wrong password"){%>   
+                    <script>
+                        Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: "Passwords didn't match",
+                                
+                            })
+                    </script>
+                <% } %>
+                <%if(type=="invalid"){%>   
+                    <script>
+                        Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: "Invalid email or password",
+                                
+                            })
+                    </script>
+                <% } %>
             <% } %>
         
         
@@ -81,14 +106,16 @@
 
             <form action="/register" style="text-align: center;" method="post">
                 <h2>Name</h2>
-                <input type="text" name="name"/>
+                <input id="log" type="text" name="name"/>
                 <h2>Email</h2>
-                <input type="text" name="email" />
+                <input id="log" type="text" name="email" />
                 <h2>Password</h2>
-                <input type="text" name="password"/>
+                <input id="log" type="password" name="password"/>
                 <p id="reg">*The password must be numbers </p>
+                <h2>Confirm your Password</h2>
+                <input id="log" type="password" name="password2"/>
                 <h2>Your Favorite car</h2>
-                <input type="text" name="car"/>
+                <input id="log" type="text" name="car"/>
                 <br>
                 <input class="btn" type="submit" name="acao" value="REGISTER"/>
                 <p id="reg">You will be redirected to home page. </p>
@@ -99,9 +126,9 @@
             <h1>Login</h1>
             <form action="/login" style="text-align:center;" method="post"> 
                 <h2>Email</h2>
-                <input type="text" name="email" />
+                <input id="log" type="text" name="email" />
                 <h2>Password</h2>
-                <input type="text" name="password"/><br>
+                <input id="log" type="password" name="password"/><br>
                 <input class="btn" type="submit" name="acao" value="LOGIN"/>
             </form>
             

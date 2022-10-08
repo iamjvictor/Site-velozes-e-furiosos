@@ -15,15 +15,10 @@
     <div id="interface">
 
 
-        <header id="cabecalho">
-            <hgroup>
-                <h3>
-                    Portal de fãs, apaixonados por carros e automotivos.
-
-                </h3>
-            </hgroup>
+        <header id="cabecalho">            
 
             <nav id="menu">
+                <a class="logo" href="/">Car<span>L</span>overs</a>
                 <ul type=disc>
                     <li>
                         <a href="/">Home</a>
@@ -40,10 +35,27 @@
                     <li>
                         <a href="community.ejs"> Community </a>
                     </li>
+                    <%if (user){%>
+                        <li>
+                            <a href="logout">LOGOUT</a>
+                        </li>
+                        <%} else {%>
+                        <li>
+                            <a  href="register.ejs" > Login </a> 
+                        </li>
+                        <li>
+                            <a href="register.ejs"   > Register </a>
+                        </li>
+                    <%}%>
                 </ul>
-
-
             </nav>
+
+            <hgroup>
+                <h3>
+                    Portal de fãs, apaixonados por carros e automotivos.
+                </h3>
+            </hgroup>          
+        
         </header>
 
         <h1>

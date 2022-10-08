@@ -13,16 +13,10 @@
 
 <body>
     <div id="interface">
-
-
-        <header id="cabecalho">
-            <hgroup>
-                <h3>
-                    Portal de fãs, apaixonados por carros e automotivos.
-                </h3>
-            </hgroup>
+        <header id="cabecalho">            
 
             <nav id="menu">
+                <a class="logo" href="/">Car<span>L</span>overs</a>
                 <ul type=disc>
                     <li>
                         <a href="/">Home</a>
@@ -39,17 +33,57 @@
                     <li>
                         <a href="community.ejs"> Community </a>
                     </li>
+                    <%if (user){%>
+                    <li>
+                        <a href="logout">LOGOUT</a>
+                    </li>
+                    <%} else {%>
+                    <li>
+                        <a  href="register.ejs" > Login </a> 
+                    </li>
+                    <li>
+                        <a href="register.ejs"   > Register </a>
+                    </li>
+                    <%}%>
                 </ul>
-
-
             </nav>
+
+            <hgroup>
+                <%if (userName == null){ %>
+                <h3>Portal de fãs, apaixonados por carros e automotivos.</h3>
+                <% } else { %>
+                   <h3>Seja bem vindo <%=userName.name%></h3> 
+                <% } %>    
+            </hgroup>
+            
         </header>
+        <h1>Family</h1>
+        <figure class="fotolegenda" >
+            <img src="/images/family.jpeg" >
+            <figcaption> <br/>Familiy
+            </figcaption>
+        </figure>
+
         <h2>Comments</h2>
         <form action="/create" method="POST">
             <input type="text" name="comments" id="comments" placeholder="Insert your comment about the movie !!">
             <button id="addButton" type="submit">Comment</button>
         </form>
 
+        <section id="comments">
+            <ul>
+                <% commentsList.forEach((comment)=>{ %>
+                <li>                
+                        <h2><%= comment.name %></h2>
+                        <h3><%= comment.comment %></h3>
+                    <span>     
+                        Commented in: <%= comment.createdAt.toLocaleDateString('pt-br') %> as <%=comment.createdAt.toLocaleTimeString('pt-br')%>
+                    </span>                      
+                    
+                </li>
+                <% }) %>
+            </ul>
+        </section>
         
 
 

@@ -12,21 +12,11 @@
 </head>
 
 <body>
-
-
-
-
     <div id="interface">
-        <header id="cabecalho">
-
-            <hgroup>
-                <h3>
-                    Portal de fãs, apaixonados por carros e automotivos.
-
-                </h3>
-            </hgroup>
+        <header id="cabecalho">            
 
             <nav id="menu">
+                <a class="logo" href="/">Car<span>L</span>overs</a>
                 <ul type=disc>
                     <li>
                         <a href="/">Home</a>
@@ -43,15 +33,29 @@
                     <li>
                         <a href="community.ejs"> Community </a>
                     </li>
+                    <%if (user){%>
+                        <li>
+                            <a href="logout">LOGOUT</a>
+                        </li>
+                        <%} else {%>
+                        <li>
+                            <a  href="register.ejs" > Login </a> 
+                        </li>
+                        <li>
+                            <a href="register.ejs"   > Register </a>
+                        </li>
+                        <%}%>
                 </ul>
-
-
             </nav>
 
+            <hgroup>
+                <h3>
+                    Portal de fãs, apaixonados por carros e automotivos.
+                </h3>
+            </hgroup>
             
 
-            <a  href="register.ejs" id="log" > Login </a> 
-            <a href="register.ejs"  id="log" > Register </a>
+            
             
 
         </header>
@@ -110,6 +114,7 @@
                     <td>Toyota Supra (1993)</td>
                     <td class="cv">324cv</td>
                 </tr>
+            
                 <tr>
                     <td>Nissan 370z (2006)</td>
                     <td class="cv"> 328cv</td>
@@ -126,7 +131,7 @@
             </br>
 
             <p>
-                Para baixar um pack de papeis de parede,<a href="Papeldeparede.zip" download="Papeldeparede.zip" type="application/zip"> clique aqui</a>
+                Para baixar um pack de papeis de parede, <a href="..Papeldeparede.zip" download="Papeldeparede.zip" type="application/zip">clique aqui</a>
             </p>
 
 
