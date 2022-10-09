@@ -22,7 +22,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.21.3",
-    "sweetalert2": "^11.4.24"
+    "sweetalert2": "^11.4.24",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "dotenv": "^16.0.3"
