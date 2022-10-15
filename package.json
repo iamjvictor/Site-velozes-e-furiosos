@@ -26,6 +26,6 @@
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3"
+    
   }
 }
