@@ -8,8 +8,8 @@
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iamjvictor/Site-velozes-e-furiosos?style=for-the-badge)
 
 <p align="center" width="100%">
-    <img width="50%" src="CarTelaInicial.jpg">
-    <img width="50%" src="Login_car.jpg">
+    <img width="70%" src="CarTelaInicial.jpg">
+    <img width="70%" src="Login_car.jpg">
     
 </p>
 
